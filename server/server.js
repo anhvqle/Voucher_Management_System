@@ -39,7 +39,6 @@ app.post("/create", (req, res) => {
     let vouchername = req.body.vouchername;
     let amount = req.body.amount;
     let type = req.body.type;
-    console.log(vouchername, amount, type);
     db.query("INSERT INTO voucher (`name`, `type`, `amount`, `date_created`) VALUES (?,?,?,CURRENT_DATE)",[vouchername, type, amount], function(error, results) {
         if(error) 
             throw error;
