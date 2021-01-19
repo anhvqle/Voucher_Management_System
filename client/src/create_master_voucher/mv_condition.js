@@ -4,8 +4,8 @@ function MasterVoucherCondition() {
     return (
         <div>
             <h5>ĐIỀU KIỆN ÁP DỤNG</h5>
-            <div class="row">
-                <div class="col-sm">
+            <div className="row">
+                <div className="col-sm">
                     <select id="voucher_type">
                         <option value="" disabled selected hidden>Đơn vị áp dụng</option>
                         <option value="type1">Loại 1</option>
@@ -13,7 +13,7 @@ function MasterVoucherCondition() {
                         <option value="type1">Loại 3</option>
                     </select>
                 </div>
-                <div class="col-sm">
+                <div className="col-sm">
                     <select id="voucher_type">
                         <option value="" disabled selected hidden>Loại phòng áp dụng</option>
                         <option value="type1">Loại 1</option>
@@ -21,7 +21,7 @@ function MasterVoucherCondition() {
                         <option value="type1">Loại 3</option>
                     </select>
                 </div>
-                <div class="col-sm">
+                <div className="col-sm">
                     <div className="row">
                         <div className="col-md-6">
                             <select id="voucher_type">

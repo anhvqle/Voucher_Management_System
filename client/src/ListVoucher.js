@@ -15,15 +15,17 @@ function ListVoucher() {
         </div>
       <br></br>
       <table>
-        <tr>
-            <th>Tên Voucher Master</th>
-            <th>Tên Phân Loại</th>
-            <th>Số Lượng</th>
-            <th>Phân Phối</th>
-            <th>Ngày Tạo</th>
-            <th>Status</th>
-            <th>Action</th>
-        </tr>
+        <tbody>
+          <tr>
+              <th>Tên Voucher Master</th>
+              <th>Tên Phân Loại</th>
+              <th>Số Lượng</th>
+              <th>Phân Phối</th>
+              <th>Ngày Tạo</th>
+              <th>Status</th>
+              <th>Action</th>
+          </tr>
+        </tbody>
       </table>
     </div>
   );
