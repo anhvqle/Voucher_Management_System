@@ -1,0 +1,33 @@
+.float_right {
+  float: right;
+}
+
+table, .full_width {
+  width: 100%;
+}
+
+select, option {
+  width: 100%;
+  height: 100%;
+}
+
+select:invalid { 
+  color: gray;
+  width: 100%;
+  height: 100%; 
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+h2{
+  text-align: center;
+}
+
+input[type="text"] { 
+  padding: 20px 10px; 
+  line-height: 28px; 
+}
