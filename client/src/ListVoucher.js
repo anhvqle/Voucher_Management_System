@@ -21,7 +21,7 @@ function ListVoucher() {
     tableContent = vouchers.map(voucher => {
       return (
         <tr key={voucher.id}>
-          <td>{voucher.name}</td>
+          <td><a href={'/voucher/' + voucher.id}>{voucher.name}</a></td>
           <td>{voucher.type}</td>
           <td>{voucher.amount}</td>
           <td>N/A</td>

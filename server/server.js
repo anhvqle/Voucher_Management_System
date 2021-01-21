@@ -52,6 +52,18 @@ app.post("/create", (req, res) => {
     });
 });
 
+//------------------- Get Specific Voucher  ----------------------
+app.get('/voucher/:id', (req, res) => {
+    db.query('SELECT * FROM voucher WHERE id = ?',[req.params.id], function(error, voucher) {
+        if(error){ 
+            res.send(error);
+        }
+        if (voucher.length > 0) {
+            res.json(voucher);
+        }        
+    });
+})
+
 
 //----------------------------- Port -----------------------------
 app.listen(3001, () => {
