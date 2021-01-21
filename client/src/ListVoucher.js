@@ -1,6 +1,34 @@
 import './App.css';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 function ListVoucher() {
+  const [vouchers, setVoucher] = useState(null);
+  const url = "http://localhost:3001/";
+  let tableContent = null;
+
+  useEffect(() => {
+      axios.get(url).then((response) => {
+          setVoucher(response.data);
+      })
+  }, [url]);
+
+  if(vouchers){
+    tableContent = vouchers.map(voucher => {
+      return (
+        <tr key={voucher.id}>
+          <td>{voucher.name}</td>
+          <td>{voucher.type}</td>
+          <td>{voucher.amount}</td>
+          <td>N/A</td>
+          <td>{voucher.date_created.substring(0,10)}</td>
+          <td>N/A</td>
+          <td>N/A</td>
+        </tr>
+      )
+    })
+  }
+
   return (
     <div className="jumbotron">
         <div className="row">
@@ -25,6 +53,7 @@ function ListVoucher() {
               <th>Status</th>
               <th>Action</th>
           </tr>
+          {tableContent}
         </tbody>
       </table>
     </div>
