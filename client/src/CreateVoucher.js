@@ -4,7 +4,6 @@ import { useState } from 'react';
 // import MasterVoucherInfo from './create_master_voucher/mv_info';
 import MasterVoucherCondition from './create_master_voucher/mv_condition';
 import MasterVoucherControl from './create_master_voucher/mv_control';
-import axios from 'axios';
 
 function CreateVoucher() {
     const [vouchername, setVouchername] = useState("");
@@ -47,7 +46,7 @@ function CreateVoucher() {
                                 }}></input>
                             </div>
                             <div className="col-md-6">
-                                <select id="voucher_type" onChange={(e) => { setType(e.target.value) }}>
+                                <select id="voucher_type" required onChange={(e) => { setType(e.target.value) }}>
                                     <option value="" disabled selected hidden>Loại Voucher</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>

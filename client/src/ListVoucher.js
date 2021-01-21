@@ -13,6 +13,10 @@ function ListVoucher() {
       })
   }, [url]);
 
+  function generate_voucher(){
+    console.log("Generate Voucher Pressed");
+  }
+
   if(vouchers){
     tableContent = vouchers.map(voucher => {
       return (
@@ -23,7 +27,7 @@ function ListVoucher() {
           <td>N/A</td>
           <td>{voucher.date_created.substring(0,10)}</td>
           <td>N/A</td>
-          <td>N/A</td>
+          <td><button onClick={generate_voucher}><i className="fa fa-share generate_button"></i></button></td>
         </tr>
       )
     })
