@@ -46,3 +46,21 @@ button {
 .generate_button:focus{
   outline:none !important;
 }
+
+.form-popup {
+	position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  width: 410px;
+  padding: 30px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.form-popup .close_btn{
+  border: none;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+}

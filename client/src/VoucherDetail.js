@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 function VoucherDetail() {
     const [voucher, setVoucher] = useState(null);
-    const url = "http://localhost:3001/voucher/11";
+    const url = `http://localhost:3001/voucher/11`;
     let tableContent = null;
 
     useEffect(() => {
@@ -27,7 +27,7 @@ function VoucherDetail() {
     return (
         <div className="jumbotron">
             <h2>Voucher Details</h2>
-            <br></br>
+            <br />
             <table>
                 <tbody>
                 <tr>
@@ -39,7 +39,7 @@ function VoucherDetail() {
                 {tableContent}
                 </tbody>
             </table>
-            <br></br>
+            <br />
             <button type="button" className="btn btn-outline-secondary float_right mr-2" onClick = {event =>  window.location.href='/list'} >Back</button>
         </div>
     );

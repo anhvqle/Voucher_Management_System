@@ -56,7 +56,7 @@ function CreateVoucher() {
                         </div>
                     </div>
                 </div>
-                <br></br>
+                <br />
                 <div className="row">
                     <div className="col-md-4">
                         <input type="date" id="create_date" name="create_date"></input>
@@ -65,7 +65,7 @@ function CreateVoucher() {
                         <input type="date" id="end_date" name="end_date"></input>
                     </div>
                 </div>
-                <br></br>
+                <br />
                 <MasterVoucherCondition />
                 <MasterVoucherControl />
             </div>
