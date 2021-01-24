@@ -2,9 +2,9 @@ import './App.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-function VoucherDetail() {
+function VoucherDetail(props) {
     const [voucher, setVoucher] = useState(null);
-    const url = `http://localhost:3001/voucher/11`;
+    const url = `http://localhost:3001${props.location.pathname}`;
     let tableContent = null;
 
     useEffect(() => {
@@ -26,7 +26,15 @@ function VoucherDetail() {
 
     return (
         <div className="jumbotron">
-            <h2>Voucher Details</h2>
+            <div className="row">
+                <div className="col-md-6">
+                    <h3>VOUCHER DETAILS</h3>
+                </div>
+                    <div className="col-md-6">
+                    <br />
+                    <button type="button" className="btn btn-primary float_right" onClick = {event =>  window.location.href='/generate'}>Generate Voucher</button>
+                </div>
+            </div>
             <br />
             <table>
                 <tbody>
