@@ -8,7 +8,7 @@ function Navbar() {
         //         </div>
         //     </div>
         // </nav> 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="collapse navbar-collapse container" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
