@@ -32,7 +32,7 @@ function VoucherDetail(props) {
                 </div>
                     <div className="col-md-6">
                     <br />
-                    <button type="button" className="btn btn-primary float_right" onClick = {event =>  window.location.href='/generate'}>Generate Voucher</button>
+                    <button type="button" className="btn btn-primary float_right" onClick = {event =>  window.location.href=`/generate/${props.location.pathname.substring(9,12)}`}>Generate Voucher</button>
                 </div>
             </div>
             <br />

@@ -12,7 +12,7 @@ function App() {
         <Route path="/" exact component={ListVoucher}/>
         <Route path="/list" component={ListVoucher}/>
         <Route path="/create" component={CreateVoucher}/>
-        <Route path="/generate" component={GenerateVoucher}/>
+        <Route path="/generate/:id" component={GenerateVoucher}/>
         <Route path="/voucher/:id" component={VoucherDetail}/>
       </Switch>
     </Router>

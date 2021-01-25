@@ -26,8 +26,8 @@ function CreateVoucher() {
     return (
         <div className="jumbotron">
             <h2>Create New Type Voucher</h2>
-            <div className="jumbotron">
-                {/* <MasterVoucherInfo data={vouchername, amount}/> */}
+            <div>
+                {/* <MasterVoucherInfo /> */}
                 <h5>THÔNG TIN MASTER VOUCHER</h5>
                 <div className="row">
                     <div className="col-sm">
