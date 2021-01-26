@@ -21,7 +21,7 @@ function ListVoucher() {
           <td><a href={'/voucher/' + voucher.id}>{voucher.name}</a></td>
           <td>{voucher.type}</td>
           <td>{voucher.amount}</td>
-          <td>N/A</td>
+          <td>{voucher.delivered}</td>
           <td>{voucher.date_created.substring(0,10)}</td>
           <td>N/A</td>
           <td><button><a href={'/generate/' + voucher.id}><i className="fa fa-share generate_button"></i></a></button></td>
