@@ -5,6 +5,7 @@ const app = express();
 var cors = require('cors');
 app.use(bodyParser.json());
 app.use(cors());
+app.use(bodyParser.urlencoded({extended: true}))
 
 const db = mysql.createConnection({
     host: "localhost",
@@ -22,7 +23,7 @@ db.connect( (error) => {
     }
 })
 
-//------------------------ List Voucher --------------------------
+//---------------------- List Voucher -------------------------
 app.get("/", (req, res) => {
     db.query('SELECT * FROM voucher', function(error, voucher) {
         if(error){ 
@@ -34,7 +35,7 @@ app.get("/", (req, res) => {
     });
 });
 
-//------------------------ Create Voucher --------------------------
+//---------------------- Create Voucher ------------------------
 app.post("/create", (req, res) => {
     let vouchername = req.body.vouchername;
     let amount = req.body.amount;
@@ -64,10 +65,9 @@ app.get('/voucher/:id', (req, res) => {
     });
 })
 
-//------------------- Get Specific Voucher  ----------------------
+//---------------- Generate Specific Voucher  --------------------
 app.post('/generate/:id', (req, res) => {
     let inputAmount = req.body.inputAmount;
-    console.log(inputAmount);
     let givenAmount;
     db.query('SELECT * FROM voucher WHERE id = ?',[req.params.id], function(error, voucher) {
         if(error){ 
@@ -76,12 +76,12 @@ app.post('/generate/:id', (req, res) => {
         if (voucher.length > 0) {
             givenAmount = voucher[0].amount;
         }  
-        inputAmount = 2 + givenAmount;
+        inputAmount = parseInt(inputAmount) + parseInt(givenAmount);
         db.query('UPDATE voucher SET `amount` = ? WHERE `id` = ?',[inputAmount, req.params.id], function(error) {
             if(error){ 
                 res.send(error);
             }
-            return res.send("Good");        
+            return res.send("Generate Voucher Succesfully");        
         });      
     });
 })
