@@ -64,6 +64,27 @@ app.get('/voucher/:id', (req, res) => {
     });
 })
 
+//------------------- Get Specific Voucher  ----------------------
+app.post('/generate/:id', (req, res) => {
+    let inputAmount = req.body.inputAmount;
+    console.log(inputAmount);
+    let givenAmount;
+    db.query('SELECT * FROM voucher WHERE id = ?',[req.params.id], function(error, voucher) {
+        if(error){ 
+            res.send(error);
+        }
+        if (voucher.length > 0) {
+            givenAmount = voucher[0].amount;
+        }  
+        inputAmount = 2 + givenAmount;
+        db.query('UPDATE voucher SET `amount` = ? WHERE `id` = ?',[inputAmount, req.params.id], function(error) {
+            if(error){ 
+                res.send(error);
+            }
+            return res.send("Good");        
+        });      
+    });
+})
 
 //----------------------------- Port -----------------------------
 app.listen(3001, () => {
