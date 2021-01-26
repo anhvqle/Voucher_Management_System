@@ -40,7 +40,7 @@ app.post("/create", (req, res) => {
     let vouchername = req.body.vouchername;
     let amount = req.body.amount;
     let type = req.body.type;
-    db.query("INSERT INTO voucher (`name`, `type`, `amount`, `date_created`) VALUES (?,?,?,CURRENT_DATE)",[vouchername, type, amount], function(error, results) {
+    db.query("INSERT INTO voucher (`name`, `type`, `amount`, `delivered`, `date_created`) VALUES (?,?,?,0,CURRENT_DATE)",[vouchername, type, amount], function(error, results) {
         if(error) 
             throw error;
         else {
@@ -68,24 +68,35 @@ app.get('/voucher/:id', (req, res) => {
 //---------------- Generate Specific Voucher  --------------------
 app.post('/generate/:id', (req, res) => {
     let inputAmount = req.body.inputAmount;
-    let givenAmount;
+    let givenAmount, givenDelivered;
     db.query('SELECT * FROM voucher WHERE id = ?',[req.params.id], function(error, voucher) {
         if(error){ 
             res.send(error);
         }
         if (voucher.length > 0) {
             givenAmount = voucher[0].amount;
+            givenDelivered = voucher[0].delivered;
         }  
         if(parseInt(inputAmount) > parseInt(givenAmount)){
             return res.json({ status : 404, message: "Không thể phân phối nhiều voucher hơn số lượng có sẵn"});
         }
-        inputAmount = parseInt(givenAmount) - parseInt(inputAmount);
-        db.query('UPDATE voucher SET `amount` = ? WHERE `id` = ?',[inputAmount, req.params.id], function(error) {
+
+        db.query('UPDATE voucher SET `delivered` = ? WHERE `id` = ?',[parseInt(inputAmount) + parseInt(givenDelivered), req.params.id], function(error) {
             if(error){ 
                 res.send(error);
             }
-            return res.json({ status : 200, message: "Generate Voucher Succesfully" });      
-        });      
+            else{
+                inputAmount = parseInt(givenAmount) - parseInt(inputAmount);
+                db.query('UPDATE voucher SET `amount` = ? WHERE `id` = ?',[inputAmount, req.params.id], function(error) {
+                    if(error){ 
+                        res.send(error);
+                    }
+                    else{
+                        res.json({ status : 200, message: "Generate Voucher Succesfully" });      
+                    }
+                });   
+            }      
+        }); 
     });
 })
 
