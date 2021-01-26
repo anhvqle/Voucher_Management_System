@@ -76,12 +76,15 @@ app.post('/generate/:id', (req, res) => {
         if (voucher.length > 0) {
             givenAmount = voucher[0].amount;
         }  
-        inputAmount = parseInt(inputAmount) + parseInt(givenAmount);
+        if(parseInt(inputAmount) > parseInt(givenAmount)){
+            return res.json({ status : 404, message: "Không thể phân phối nhiều voucher hơn số lượng có sẵn"});
+        }
+        inputAmount = parseInt(givenAmount) - parseInt(inputAmount);
         db.query('UPDATE voucher SET `amount` = ? WHERE `id` = ?',[inputAmount, req.params.id], function(error) {
             if(error){ 
                 res.send(error);
             }
-            return res.send("Generate Voucher Succesfully");        
+            return res.json({ status : 200, message: "Generate Voucher Succesfully" });      
         });      
     });
 })

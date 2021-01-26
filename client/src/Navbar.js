@@ -6,14 +6,14 @@ function Navbar() {
                     <li className="nav-item active">
                         <a className="nav-link" href="/list">Master Voucher</a>
                     </li>
-                    <li className="nav-item active">
-                        <a className="nav-link" href="#">Quản lý Đăng ký sử dụng Voucher</a>
+                    <li className="nav-item">
+                        <a className="nav-link" href="/list">Quản lý Đăng ký sử dụng Voucher</a>
                     </li>
-                    <li className="nav-item active">
-                        <a className="nav-link" href="#">Quản lý Đại lý</a>
+                    <li className="nav-item">
+                        <a className="nav-link" href="/list">Quản lý Đại lý</a>
                     </li>
-                    <li className="nav-item active">
-                        <a className="nav-link" href="#">Quản lý User</a>
+                    <li className="nav-item">
+                        <a className="nav-link" href="/list">Quản lý User</a>
                     </li>
                 </ul>
             </div>
