@@ -14,22 +14,6 @@ function ListVoucher() {
       })
   }, [url]);
 
-  function showForm(){
-    console.log("Generate Voucher Pressed");
-    popupForm = 
-    <div className="form-popup">
-      <h2>Generate Voucher</h2>
-      <br></br>
-      <button type="button" className="close_btn cancel" aria-label="Close" id="close-form" onClick={hideForm}>
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-  }
-
-  function hideForm(){
-    popupForm = null;
-  }
-
   if(vouchers){
     tableContent = vouchers.map(voucher => {
       return (
@@ -40,7 +24,7 @@ function ListVoucher() {
           <td>N/A</td>
           <td>{voucher.date_created.substring(0,10)}</td>
           <td>N/A</td>
-          <td><button onClick={showForm}><i className="fa fa-share generate_button"></i></button></td>
+          <td><button><a href={'/generate/' + voucher.id}><i className="fa fa-share generate_button"></i></a></button></td>
         </tr>
       )
     })
