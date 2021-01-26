@@ -86,8 +86,7 @@ app.post('/generate/:id', (req, res) => {
                 res.send(error);
             }
             else{
-                inputAmount = parseInt(givenAmount) - parseInt(inputAmount);
-                db.query('UPDATE voucher SET `amount` = ? WHERE `id` = ?',[inputAmount, req.params.id], function(error) {
+                db.query('UPDATE voucher SET `amount` = ? WHERE `id` = ?',[parseInt(givenAmount) - parseInt(inputAmount), req.params.id], function(error) {
                     if(error){ 
                         res.send(error);
                     }
