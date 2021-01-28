@@ -13,7 +13,7 @@ function GenerateVoucher(props) {
             inputAmount: amount,
         }).then( (response) => {
             if(parseInt(response.data.status) <= 299){
-                window.location.href = '/list';
+                window.location.href = `/voucher/${props.location.pathname.substring(10)}`;
             }
             else{
                 msg = "Không thể phân phối voucher nhiều hơn số lượng có sẵn!";
@@ -44,7 +44,7 @@ function GenerateVoucher(props) {
             <br />
             <p style={{color:'red'}}>{deliverStatus}</p>
             <button type="button" className="btn btn-primary float_right" onClick = {generate_voucher} >Deliver</button>
-            <button type="button" className="btn btn-outline-secondary float_right mr-2" onClick = {event =>  window.location.href=`/voucher/${props.location.pathname.substring(10,13)}`} >Cancel</button>
+            <button type="button" className="btn btn-outline-secondary float_right mr-2" onClick = {event =>  window.location.href=`/list`} >Cancel</button>
         </div>
     );
 }

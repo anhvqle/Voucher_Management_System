@@ -24,7 +24,11 @@ function ListVoucher() {
           <td>{voucher.delivered}</td>
           <td>{voucher.date_created.substring(0,10)}</td>
           <td>N/A</td>
-          <td><button><a href={'/generate/' + voucher.id}><i className="fa fa-share generate_button"></i></a></button></td>
+          <td>
+            <button><a href={'/generate/' + voucher.id}><i className="fa fa-share action_button"></i></a></button>
+            <button><a href={'/generate/' + voucher.id}><i className="fa fa-edit action_button"></i></a></button>
+            <button><a href={'/generate/' + voucher.id}><i className="fa fa-trash-o action_button"></i></a></button>
+          </td>
         </tr>
       )
     })

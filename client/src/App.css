@@ -32,7 +32,7 @@ input[type="text"] {
   line-height: 28px; 
 }
 
-.generate_button{
+.action_button{
   padding: 0;
   border: none;
   background: none;
@@ -43,7 +43,7 @@ button {
   border: none;
 }
 
-.generate_button:focus{
+.action_button:focus{
   outline:none !important;
 }
 
