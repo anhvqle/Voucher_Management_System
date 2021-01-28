@@ -5,7 +5,7 @@ import { useState } from 'react';
 import MasterVoucherCondition from './create_master_voucher/mv_condition';
 import MasterVoucherControl from './create_master_voucher/mv_control';
 
-function CreateVoucher() {
+function EditVoucher() {
     const [vouchername, setVouchername] = useState("");
     const [amount, setAmount] = useState("");
     const [type, setType] = useState("");
@@ -25,7 +25,7 @@ function CreateVoucher() {
     };
     return (
         <div className="jumbotron">
-            <h2>Create New Type Voucher</h2>
+            <h2>Edit Voucher</h2>
             <br />
             <div>
                 {/* <MasterVoucherInfo /> */}
@@ -70,10 +70,10 @@ function CreateVoucher() {
                 <MasterVoucherCondition />
                 <MasterVoucherControl />
             </div>
-            <button type="button" className="btn btn-primary float_right" onClick = {create_voucher}>Create</button>
+            <button type="button" className="btn btn-primary float_right" onClick = {create_voucher}>Update</button>
             <button type="button" className="btn btn-outline-secondary float_right mr-2" onClick = {event =>  window.location.href='/list'} >Cancel</button>
         </div>
     );
 }
 
-export default CreateVoucher;
+export default EditVoucher;

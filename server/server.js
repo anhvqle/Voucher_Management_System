@@ -65,7 +65,7 @@ app.get('/voucher/:id', (req, res) => {
     });
 })
 
-//---------------- Generate Specific Voucher  --------------------
+//-------------------- Generate  Voucher -------------------------
 app.post('/generate/:id', (req, res) => {
     let inputAmount = req.body.inputAmount;
     let givenAmount, givenDelivered;
@@ -97,6 +97,33 @@ app.post('/generate/:id', (req, res) => {
             }      
         }); 
     });
+})
+
+//----------------------- Edit Voucher ---------------------------
+app.post('/edit/:id', (req, res) => {
+    let vouchername = req.body.vouchername;
+    let amount = req.body.amount;
+    let type = req.body.type;
+    db.query('UPDATE voucher SET `name` = ?, `type` = ?, `amount` = ? WHERE `id` = ?',[vouchername, type, amount, req.params.id], function(error) {
+        if(error){ 
+            res.send(error);
+        }
+        else{
+            res.json({ status : 200, message: "Generate Voucher Succesfully" });      
+        }
+    });   
+})
+
+//----------------------- Delete Voucher ---------------------------
+app.post('/delete/:id', (req, res) => {
+    db.query('DELETE FROM voucher WHERE `id` = ?',[req.params.id], function(error) {
+        if(error){ 
+            res.send(error);
+        }
+        else{
+            res.json({ status : 200, message: "Delete Voucher Succesfully" });      
+        }
+    });   
 })
 
 //----------------------------- Port -----------------------------

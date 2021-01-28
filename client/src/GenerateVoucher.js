@@ -25,7 +25,7 @@ function GenerateVoucher(props) {
     };
     return (
         <div className="jumbotron">
-            <h2>DELIVER VOUCHER</h2>
+            <h2>PHÂN PHỐI VOUCHER</h2>
             <br />
             <div className="row">
                 <div className="col-md-6">

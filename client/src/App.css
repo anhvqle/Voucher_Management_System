@@ -53,7 +53,7 @@ button {
   top: 50%;
   transform: translate(-50%, -50%);
   background: #fff;
-  width: 410px;
+  width: 500px;
   padding: 30px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 }

@@ -22,11 +22,11 @@ function VoucherDetail(props) {
             <td>{voucher[0].amount}</td>
             <td>{voucher[0].delivered}</td>
             <td>{voucher[0].date_created.substring(0,10)}</td>
-            <td>
-                <button><a href={'/generate/' + voucher.id}><i className="fa fa-share action_button"></i></a></button>
-                <button><a href={'/generate/' + voucher.id}><i className="fa fa-edit action_button"></i></a></button>
-                <button><a href={'/generate/' + voucher.id}><i className="fa fa-trash-o action_button"></i></a></button>
-            </td>
+            {/* <td>
+                <button><a href={'/generate/' + voucher[0].id}><i className="fa fa-share action_button"></i></a></button>
+                <button><a href={'/edit/' + voucher[0].id}><i className="fa fa-edit action_button"></i></a></button>
+                <button><a href={'/delete/' + voucher[0].id}><i className="fa fa-trash-o action_button"></i></a></button>
+            </td> */}
         </tr>
     }
 
@@ -42,7 +42,7 @@ function VoucherDetail(props) {
                     <th>Số Lượng</th>
                     <th>Phân Phối</th>
                     <th>Ngày Tạo</th>
-                    <th>Action</th>
+                    {/* <th>Action</th> */}
                 </tr>
                 {tableContent}
                 </tbody>

@@ -26,8 +26,8 @@ function ListVoucher() {
           <td>N/A</td>
           <td>
             <button><a href={'/generate/' + voucher.id}><i className="fa fa-share action_button"></i></a></button>
-            <button><a href={'/generate/' + voucher.id}><i className="fa fa-edit action_button"></i></a></button>
-            <button><a href={'/generate/' + voucher.id}><i className="fa fa-trash-o action_button"></i></a></button>
+            <button><a href={'/edit/' + voucher.id}><i className="fa fa-edit action_button"></i></a></button>
+            <button><a href={'/delete/' + voucher.id}><i className="fa fa-trash-o action_button"></i></a></button>
           </td>
         </tr>
       )
