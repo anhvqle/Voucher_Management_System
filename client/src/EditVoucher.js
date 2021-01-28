@@ -5,14 +5,14 @@ import { useState } from 'react';
 import MasterVoucherCondition from './create_master_voucher/mv_condition';
 import MasterVoucherControl from './create_master_voucher/mv_control';
 
-function EditVoucher() {
+function EditVoucher(props) {
     const [vouchername, setVouchername] = useState("");
     const [amount, setAmount] = useState("");
     const [type, setType] = useState("");
 
-    const create_voucher = () => {
-        console.log("Create Voucher Pressed");
-        Axios.post("http://localhost:3001/create", {
+    const edit_voucher = () => {
+        console.log("Edit Voucher Pressed");
+        Axios.post(`http://localhost:3001/edit/${props.location.pathname.substring(6)}`, {
             vouchername: vouchername,
             amount: amount,
             type: type
@@ -70,7 +70,7 @@ function EditVoucher() {
                 <MasterVoucherCondition />
                 <MasterVoucherControl />
             </div>
-            <button type="button" className="btn btn-primary float_right" onClick = {create_voucher}>Update</button>
+            <button type="button" className="btn btn-primary float_right" onClick = {edit_voucher}>Update</button>
             <button type="button" className="btn btn-outline-secondary float_right mr-2" onClick = {event =>  window.location.href='/list'} >Cancel</button>
         </div>
     );

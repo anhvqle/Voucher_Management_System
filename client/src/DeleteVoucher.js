@@ -66,7 +66,6 @@ function DeleteVoucher(props) {
                 <button type="button" className="close_btn cancel" aria-label="Close" onClick = {openForm}>
                     <span aria-hidden="true">&times;</span>
                 </button>
-                {/* <p>Confirm Delete This Master Voucher?</p> */}
                 <button type="button" className="btn btn-danger float_right" onClick = {delete_voucher}>Đồng Ý</button>
                 <button type="button" className="btn btn-outline-secondary float_right mr-2" onClick = {openForm}>Huỷ</button>
             </div>

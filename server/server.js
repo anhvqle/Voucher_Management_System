@@ -109,7 +109,7 @@ app.post('/edit/:id', (req, res) => {
             res.send(error);
         }
         else{
-            res.json({ status : 200, message: "Generate Voucher Succesfully" });      
+            res.json({ status : 200, message: "Edit Voucher Succesfully" });      
         }
     });   
 })
