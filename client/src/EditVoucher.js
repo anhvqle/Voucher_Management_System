@@ -1,14 +1,33 @@
 import './App.css';
 import Axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // import MasterVoucherInfo from './create_master_voucher/mv_info';
-import MasterVoucherCondition from './create_master_voucher/mv_condition';
-import MasterVoucherControl from './create_master_voucher/mv_control';
+// import MasterVoucherCondition from './create_master_voucher/mv_condition';
+// import MasterVoucherControl from './create_master_voucher/mv_control';
 
 function EditVoucher(props) {
+    // Get Previous Data
+    const [voucher, setVoucher] = useState(null);
     const [vouchername, setVouchername] = useState("");
     const [amount, setAmount] = useState("");
     const [type, setType] = useState("");
+    const url = `http://localhost:3001/voucher/${props.location.pathname.substring(6)}`;
+    let voucherDetail = null;
+    let placeholderName = "", placeholderAmount = null, placeholderType = null;
+
+    useEffect(() => {
+        Axios.get(url).then((response) => {
+            setVoucher(response.data);
+            console.log(response.data);
+        })
+    }, [url]);
+
+    if(voucher){
+        voucherDetail = [voucher[0].name, voucher[0].type, voucher[0].amount, voucher[0].name];
+        placeholderName = voucherDetail[0];
+        placeholderType = voucherDetail[1];
+        placeholderAmount = voucherDetail[2];
+    }
 
     const edit_voucher = () => {
         console.log("Edit Voucher Pressed");
@@ -32,7 +51,7 @@ function EditVoucher(props) {
                 <h5>THÔNG TIN MASTER VOUCHER</h5>
                 <div className="row">
                     <div className="col-sm">
-                        <input className="full_width" name="vouchername" placeholder="Tên Voucher Master" required onChange = {(e) => {
+                        <input className="full_width" name="vouchername" placeholder={placeholderName} required onChange = {(e) => {
                             setVouchername(e.target.value);
                         }}></input>
                     </div>
@@ -42,12 +61,12 @@ function EditVoucher(props) {
                     <div className="col-sm">
                         <div className="row">
                             <div className="col-md-6">
-                                <input className="full_width" name="amount" placeholder="Số Lượng" required onChange = {(e) => {
+                                <input className="full_width" name="amount" placeholder={placeholderAmount} required onChange = {(e) => {
                                     setAmount(e.target.value);
                                 }}></input>
                             </div>
                             <div className="col-md-6">
-                                <select id="voucher_type" required onChange={(e) => { setType(e.target.value) }}>
+                                <select defaultValue={placeholderType} id="voucher_type" required onChange={(e) => { setType(e.target.value) }}>
                                     <option value="" disabled selected hidden>Loại Voucher</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -58,17 +77,8 @@ function EditVoucher(props) {
                     </div>
                 </div>
                 <br />
-                <div className="row">
-                    <div className="col-md-4">
-                        <input type="date" id="create_date" name="create_date"></input>
-                    </div>
-                    <div className="col-md-4">
-                        <input type="date" id="end_date" name="end_date"></input>
-                    </div>
-                </div>
-                <br />
-                <MasterVoucherCondition />
-                <MasterVoucherControl />
+                {/* <MasterVoucherCondition />
+                <MasterVoucherControl /> */}
             </div>
             <button type="button" className="btn btn-primary float_right" onClick = {edit_voucher}>Update</button>
             <button type="button" className="btn btn-outline-secondary float_right mr-2" onClick = {event =>  window.location.href='/list'} >Cancel</button>

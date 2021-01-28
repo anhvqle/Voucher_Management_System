@@ -45,11 +45,11 @@ function MasterVoucherCondition() {
             <br></br>
             <div>
                 <input type="checkbox" id="breakfast" name="breakfast" value="breakfast"></input>
-                <label for="vehicle1">Bao gồm ăn sáng</label><br></br>
+                <label htmlFor="vehicle1">Bao gồm ăn sáng</label><br></br>
                 <input type="checkbox" id="weekend_fee" name="weekend_fee" value="weekend_fee"></input>
-                <label for="vehicle1">Phụ thu cuối tuần</label><br></br>
+                <label htmlFor="vehicle1">Phụ thu cuối tuần</label><br></br>
                 <input type="checkbox" id="holidays" name="holidays" value="holidays"></input>
-                <label for="vehicle1">Áp dụng Lễ/Tết</label><br></br>
+                <label htmlFor="vehicle1">Áp dụng Lễ/Tết</label><br></br>
                 <input type="text" className="full_width" placeholder="Mô tả loại voucher" height="48"></input>
             </div>
             <br></br>
